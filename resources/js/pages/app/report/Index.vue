@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { usePage } from "@inertiajs/vue3";
 import DatePicker from "@/components/DatePicker.vue";
 import dayjs from "dayjs";

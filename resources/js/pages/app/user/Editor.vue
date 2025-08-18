@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { handleSubmit } from "@/helpers/client-req-handler";
 import { createOptions } from "@/helpers/options";
 import { validateUsername } from "@/helpers/validations";

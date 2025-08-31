@@ -58,6 +58,7 @@ const submit = () => {
                 :rules="[
                   (val) => validateEmail(val) || 'Format Email tidak valid.',
                 ]"
+                hide-bottom-space
               >
                 <template v-slot:append>
                   <q-icon name="email" />

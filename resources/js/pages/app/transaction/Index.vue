@@ -249,7 +249,7 @@ watch(pagination, () => storage.set("pagination", pagination.value), {
             label="Tahun"
             dense
             outlined
-            class="custom-select col-xs-12 col-md-4 col-sm-6"
+            class="custom-select col-xs-6 col-md-4 col-sm-6"
             emit-value
             map-options
             @update:model-value="onFilterChange"
@@ -260,7 +260,7 @@ watch(pagination, () => storage.set("pagination", pagination.value), {
             label="Bulan"
             dense
             outlined
-            class="custom-select col-xs-12 col-md-4 col-sm-6"
+            class="custom-select col-xs-6 col-md-4 col-sm-6"
             emit-value
             map-options
             :disable="filter.year === null || filter.year === 'all'"

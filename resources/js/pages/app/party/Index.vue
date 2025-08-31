@@ -100,6 +100,7 @@ const fetchItems = (props = null) => {
     rows,
     url: route("app.party.data"),
     loading,
+    tableRef,
   });
 };
 

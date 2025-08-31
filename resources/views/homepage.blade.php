@@ -3,23 +3,23 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ env('APP_NAME') }}</title>
-  <meta name="description" content="{{ env('APP_NAME') }} aplikasi utang-piutang simpel dan gratis. Catat, kelola, dan pantau transaksi pribadi atau bisnis dengan mudah.">
-  <meta name="keywords" content="aplikasi utang piutang, catat utang piutang, utang piutang pribadi, utang piutang bisnis, aplikasi gratis utang piutang, aplikasi sederhana untuk utang piutang, kelola utang piutang mudah, pencatatan utang piutang online, aplikasi keuangan pribadi gratis, aplikasi pencatatan keuangan kecil">
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
-  @vite([])
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ env('APP_NAME') }}</title>
+    <meta name="description" content="{{ env('APP_NAME') }} aplikasi utang-piutang simpel dan gratis. Catat, kelola, dan pantau transaksi pribadi atau bisnis dengan mudah.">
+    <meta name="keywords" content="aplikasi utang piutang, catat utang piutang, utang piutang pribadi, utang piutang bisnis, aplikasi gratis utang piutang, aplikasi sederhana untuk utang piutang, kelola utang piutang mudah, pencatatan utang piutang online, aplikasi keuangan pribadi gratis, aplikasi pencatatan keuangan kecil">
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    @vite([])
 </head>
 
 <body>
@@ -60,8 +60,8 @@
                 </ul>
 
                 <div class="ms-lg-3 mt-3 mt-lg-0 d-flex animate-slide-top delay-700">
-                    <a href="#" class="btn btn-outline-primary me-2">Masuk</a>
-                    <a href="#" class="btn btn-primary">Daftar</a>
+                    <a href="./app/auth/login" class="btn btn-outline-primary me-2">Masuk</a>
+                    <a href="./app/auth/register-options" class="btn btn-primary">Daftar</a>
                 </div>
             </nav>
         </div>
@@ -77,7 +77,7 @@
                         piutang dalam satu aplikasi sederhana. Nikmati pengelolaan keuangan yang lebih terorganisir
                         tanpa ribet.</p>
                     <div class="hero-buttons animate-fade-left delay-400">
-                        <a href="#" class="btn btn-primary btn-lg">Mulai Sekarang</a>
+                        <a href="./app/auth/login" class="btn btn-primary btn-lg">Mulai Sekarang</a>
                         <a href="#features" class="btn btn-outline-primary btn-lg">Pelajari Fitur</a>
                     </div>
                 </div>

@@ -83,19 +83,20 @@ watch(
 
 // Sanitize input and convert to a valid number
 const sanitizeInput = (value) => {
-  // Regex for valid input
-  const regex = props.allowNegative
-    ? /^-?[0-9]+([.,][0-9]*)?$/
-    : /^[0-9]+([.,][0-9]*)?$/;
+  // Hapus semua selain digit, separator, tanda minus
+  let sanitized = value.replace(/[^0-9.,-]+/g, "");
 
-  // Remove invalid characters and normalize decimal separator
-  const sanitized = value
-    .replace(/[^0-9.,-]+/g, "") // Remove unwanted characters
-    .replace(new RegExp(`\\${thousandSeparator}`, "g"), "") // Remove thousand separator
-    .replace(new RegExp(`\\${decimalSeparator}`, "g"), "."); // Replace decimal separator
+  // Hilangkan thousand separator
+  sanitized = sanitized.replace(new RegExp(`\\${thousandSeparator}`, "g"), "");
+
+  // Standarisasi decimal separator
+  sanitized = sanitized.replace(new RegExp(`\\${decimalSeparator}`, "g"), ".");
+
+  // Baru cek regex
+  const regex = props.allowNegative ? /^-?\d+(\.\d+)?$/ : /^\d+(\.\d+)?$/;
 
   if (!regex.test(sanitized)) {
-    return props.modelValue || 0; // Fallback to current modelValue if input is invalid
+    return props.modelValue || 0;
   }
 
   const parsed = parseFloat(sanitized);
@@ -115,7 +116,8 @@ const onInput = (value) => {
 
 // Emit sanitized value on blur
 const onBlur = () => {
-  displayValue.value = formatNumber(sanitizeInput(displayValue.value)); // Format the input
+  displayValue.value = formatNumber(sanitizeInput(displayValue.value));
+  console.log(displayValue.value);
   emitUpdateModelValue();
 };
 

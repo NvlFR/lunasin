@@ -1,6 +1,6 @@
 <script setup>
-import { router, useForm, usePage } from "@inertiajs/vue3";
-import { ref, onMounted, watch } from "vue";
+import { useForm, usePage } from "@inertiajs/vue3";
+import { ref, onMounted } from "vue";
 import { handleSubmit } from "@/helpers/client-req-handler";
 import { scrollToFirstErrorField } from "@/helpers/utils";
 import { useQuasar } from "quasar";
@@ -12,6 +12,7 @@ import LocaleNumberInput from "@/components/LocaleNumberInput.vue";
 import DateTimePicker from "@/components/DateTimePicker.vue";
 import AddCategoryDialog from "@/components/AddCategoryDialog.vue";
 import AddPartyDialog from "@/components/AddPartyDialog.vue";
+import { numberFromLocale } from "@/helpers/number";
 
 const page = usePage();
 const title = (!!page.props.data.id ? "Edit" : "Catat") + " Transaksi";
@@ -30,16 +31,16 @@ const form = useForm({
   image: null,
 });
 
-const { filteredCategories, filterCategories, addCategory } = useTransactionCategoryFilter([
-  { id: 'new', name: '<< Kategori Baru ... >>'},
-  ...page.props.categories
-]);
+const { filteredCategories, filterCategories, addCategory } =
+  useTransactionCategoryFilter([
+    { id: "new", name: "<< Kategori Baru ... >>" },
+    ...page.props.categories,
+  ]);
 
 const { filteredParties, filterParties, addParty } = usePartyFilter([
-  { id: 'new', name: '<< Pihak Baru ... >>'},
-  ...page.props.parties
+  { id: "new", name: "<< Pihak Baru ... >>" },
+  ...page.props.parties,
 ]);
-
 
 const handleCategoryCreated = (newCategory) => {
   form.category_id = addCategory(newCategory);
@@ -50,8 +51,8 @@ const handlePartyCreated = (newParty) => {
 };
 
 const onCategorySelected = (value) => {
-  console.log('changed', value, showAddCategoryDialog.value);
-  if (value === 'new') {
+  console.log("changed", value, showAddCategoryDialog.value);
+  if (value === "new") {
     form.category_id = null;
     showAddCategoryDialog.value = true;
   } else {
@@ -60,7 +61,7 @@ const onCategorySelected = (value) => {
 };
 
 const onPartySelected = (value) => {
-  if (value === 'new') {
+  if (value === "new") {
     form.party_id = null;
     showAddPartyDialog.value = true;
   } else {
@@ -182,7 +183,6 @@ onMounted(() => {
                 :errorMessage="form.errors.party_id"
                 :error="!!form.errors.party_id"
                 :disable="form.processing"
-
                 clearable
                 hide-bottom-space
               >
@@ -217,8 +217,7 @@ onMounted(() => {
                 :error="!!form.errors.amount"
                 :errorMessage="form.errors.amount"
                 :rules="[
-                  (vak) => (vak !== null && vak !== undefined && vak !== '' && !isNaN(vak)) || 'Jumlah harus diisi.',
-                  (val) => (val > 0) || 'Jumlah harus lebih dari 0.',
+                  (val) => numberFromLocale(val) != 0 || 'Jumlah harus diisi.',
                 ]"
                 :allowNegative="form.type == 'adjustment'"
                 hide-bottom-space
@@ -324,6 +323,5 @@ onMounted(() => {
       v-model="showAddPartyDialog"
       @created="handlePartyCreated"
     />
-
   </authenticated-layout>
 </template>

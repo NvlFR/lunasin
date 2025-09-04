@@ -53,6 +53,7 @@ const submit = () => {
                   :rules="[
                     (val) => validateEmail(val) || 'Format Email tidak valid',
                   ]"
+                  hide-bottom-space
                 >
                   <template v-slot:append>
                     <q-icon name="email" />
@@ -70,6 +71,7 @@ const submit = () => {
                     (val) =>
                       (val && val.length > 0) || 'Masukkan kata sandi baru',
                   ]"
+                  hide-bottom-space
                 >
                   <template v-slot:append>
                     <q-btn
@@ -96,6 +98,7 @@ const submit = () => {
                       form.password == form.password_confirmation ||
                       'Kata sandi yang dikonfirmasi salah.',
                   ]"
+                  hide-bottom-space
                 >
                   <template v-slot:append>
                     <q-btn
